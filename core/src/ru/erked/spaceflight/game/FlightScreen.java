@@ -203,6 +203,7 @@ public class FlightScreen implements Screen{
 
 	@Override
 	public void resume() {
+		show();
 		flight.play();
 		data.loadSF();
 	}

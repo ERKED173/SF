@@ -193,6 +193,7 @@ public class AboutScreen implements Screen{
 
 	@Override
 	public void resume() {
+		show();
 		data.loadSF();
 	}
 

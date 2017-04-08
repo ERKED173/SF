@@ -18,16 +18,11 @@ public class StartSFlight extends Game {
 	public final GPGS gpgs;
     public SFTextSystem ts;
 
-	public StartSFlight(AndroidOnlyInterface aoi, Data data, AdMob adMob, GPGS gpgs, String lang){
+	public StartSFlight(AndroidOnlyInterface aoi, Data data, AdMob adMob, GPGS gpgs){
 		this.aoi = aoi;
 		this.data = data;
 		this.adMob = adMob;
 		this.gpgs = gpgs;
-		if(lang.equals("RU")){
-			INF.lngRussian = true;
-		}else{
-			INF.lngRussian = false;
-		}
 	}
 
 	@Override

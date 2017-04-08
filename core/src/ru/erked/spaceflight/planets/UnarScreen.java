@@ -1797,6 +1797,7 @@ public class UnarScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		music.play();
 	}
 	@Override

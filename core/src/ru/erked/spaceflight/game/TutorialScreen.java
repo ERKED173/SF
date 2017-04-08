@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
+import ru.erked.spaceflight.menu.MainMenu;
 import ru.erked.spaceflight.random.INF;
 
 public class TutorialScreen implements Screen{
@@ -319,7 +320,8 @@ public class TutorialScreen implements Screen{
 	}
 	@Override
 	public void resume() {
-		ru.erked.spaceflight.menu.MainMenu.music.play();
+		show();
+		MainMenu.music.play();
 		data.loadSF();
 	}
 	@Override

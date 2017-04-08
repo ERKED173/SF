@@ -463,6 +463,7 @@ public class ResultsScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		data.loadSF();
 	}
 	@Override

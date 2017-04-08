@@ -321,6 +321,7 @@ public class LoginScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		data.loadSF();
 	}
 	@Override

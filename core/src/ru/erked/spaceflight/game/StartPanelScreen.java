@@ -329,6 +329,7 @@ public class StartPanelScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		MainMenu.music.play();
 		data.loadSF();
 	}

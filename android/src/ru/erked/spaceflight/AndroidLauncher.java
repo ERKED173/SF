@@ -65,9 +65,9 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 	final AndroidLauncher context = this;
 
 	public AndroidLauncher(){
-		adMob = new AdMobImpl(getString(R.string.ca_app2));
+		adMob = new AdMobImpl("ca-app-pub-7260640348404144/3295291546");
 		gpgs = new GPGSImpl();
-		game = new StartSFlight(this, this, adMob, gpgs, getString(R.string.language));
+		game = new StartSFlight(this, this, adMob, gpgs);
 	}
 
 	@SuppressLint("InlinedApi")
@@ -94,7 +94,7 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 
 		setContentView( layout );
 
-		MobileAds.initialize(getApplicationContext(), getString(R.string.ca_app1));
+		MobileAds.initialize(getApplicationContext(), "ca-app-pub-7260640348404144~2097759949");
 
 		load();
 	}

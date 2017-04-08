@@ -51,7 +51,7 @@ public class TechnicScreen implements Screen{
 
 	@Override
 	public void resume() {
-
+		show();
 	}
 
 	@Override

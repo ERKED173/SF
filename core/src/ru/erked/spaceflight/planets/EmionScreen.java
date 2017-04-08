@@ -1587,6 +1587,7 @@ public class EmionScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		music.play();
 	}
 	@Override

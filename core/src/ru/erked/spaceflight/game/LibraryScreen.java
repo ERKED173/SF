@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
+import ru.erked.spaceflight.menu.MainMenu;
+
 public class LibraryScreen implements Screen{
 
 	private static final float width = Gdx.graphics.getWidth();
@@ -348,7 +350,8 @@ public class LibraryScreen implements Screen{
 	}
 	@Override
 	public void resume() {
-		ru.erked.spaceflight.menu.MainMenu.music.play();
+		show();
+		MainMenu.music.play();
 		data.loadSF();
 	}
 	@Override

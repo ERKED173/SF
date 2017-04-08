@@ -1691,6 +1691,7 @@ public class DertenScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		music.play();
 	}
 	@Override

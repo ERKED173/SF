@@ -358,6 +358,7 @@ public class MainMenu implements Screen {
 
 	@Override
 	public void resume() {
+		show();
 		data.loadSF();
 	}
 

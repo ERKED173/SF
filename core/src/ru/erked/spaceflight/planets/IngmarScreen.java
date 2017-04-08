@@ -1891,6 +1891,7 @@ public class IngmarScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		music.play();
 	}
 	@Override

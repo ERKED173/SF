@@ -192,6 +192,7 @@ public class RecordsTableScreen implements Screen{
 	}
 	@Override
 	public void resume() {
+		show();
 		MainMenu.music.play();
 		data.loadSF();
 	}
