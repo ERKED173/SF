@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import ru.erked.spaceflight.random.INF;
 import ru.erked.spaceflight.splash.SplashScreen;
 
 public class StartSFlight extends Game {
@@ -15,11 +16,16 @@ public class StartSFlight extends Game {
 	public final AdMob adMob;
 	public final GPGS gpgs;
 
-	public StartSFlight(AndroidOnlyInterface aoi, Data data, AdMob adMob, GPGS gpgs){
+	public StartSFlight(AndroidOnlyInterface aoi, Data data, AdMob adMob, GPGS gpgs, String lang){
 		this.aoi = aoi;
 		this.data = data;
 		this.adMob = adMob;
 		this.gpgs = gpgs;
+		if(lang.equals("RU")){
+			INF.lngRussian = true;
+		}else{
+			INF.lngRussian = false;
+		}
 	}
 
 	@Override

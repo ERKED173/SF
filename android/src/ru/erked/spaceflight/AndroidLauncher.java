@@ -57,7 +57,6 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 	public static final String PASSWORD = "password";
 	public static final String REMEMBER = "remember";
 
-	public static final String LNG = "lng";
 	public static final String IS_FIRST_LOGIN = "is_first_login";
 
 	final ru.erked.spaceflight.StartSFlight game;
@@ -66,9 +65,9 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 	final AndroidLauncher context = this;
 
 	public AndroidLauncher(){
-		adMob = new AdMobImpl("ca-app-pub-7260640348404144/3295291546");
+		adMob = new AdMobImpl(getString(R.string.ca_app2));
 		gpgs = new GPGSImpl();
-		game = new StartSFlight(this, this, adMob, gpgs);
+		game = new StartSFlight(this, this, adMob, gpgs, getString(R.string.language));
 	}
 
 	@SuppressLint("InlinedApi")
@@ -95,7 +94,7 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 
 		setContentView( layout );
 
-		MobileAds.initialize(getApplicationContext(), "ca-app-pub-7260640348404144~2097759949");
+		MobileAds.initialize(getApplicationContext(), getString(R.string.ca_app1));
 
 		load();
 	}
@@ -144,7 +143,6 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 		ed.putString(CURRENT_ROCKET, INF.currentRocket);
 		ed.putString(CURRENT_PLANET, INF.currentPlanet);
 
-		ed.putBoolean(LNG, INF.lngRussian);
 		ed.putBoolean(IS_FIRST_LOGIN, INF.isFirstLogin);
 
 		ed.apply();
@@ -187,7 +185,6 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 		INF.currentRocket = stats.getString(CURRENT_ROCKET, "null");
 		INF.currentPlanet = stats.getString(CURRENT_PLANET, "null");
 
-		INF.lngRussian = stats.getBoolean(LNG, false);
 		INF.isFirstLogin = stats.getBoolean(IS_FIRST_LOGIN, false);
 
 	}
@@ -217,8 +214,6 @@ public class AndroidLauncher extends AndroidApplication implements AndroidOnlyIn
 	@Override
 	public void onStart() {
 		super.onStart();
-		// Во время старта приложения, подключаемся к GPGS
-		// Так рекомендует делать GOOGLE
 		gpgs.connect();
 	}
 

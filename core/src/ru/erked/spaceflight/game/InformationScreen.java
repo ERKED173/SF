@@ -6,16 +6,21 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
+import ru.erked.spaceflight.StartSFlight;
+import ru.erked.spaceflight.controllers.SFIn;
+import ru.erked.spaceflight.menu.MainMenu;
 import ru.erked.spaceflight.random.INF;
+import ru.erked.spaceflight.random.RES;
 import ru.erked.spaceflight.tech.SFButtonS;
+import ru.erked.spaceflight.tech.SFFont;
 
 public class InformationScreen implements Screen{
 
 	private static final float width = Gdx.graphics.getWidth();
 	private static final float height = Gdx.graphics.getHeight();
 	
-	private final ru.erked.spaceflight.StartSFlight game;
-	private ru.erked.spaceflight.controllers.SFIn controller;
+	private final StartSFlight game;
+	private SFIn controller;
 	
 	private int iter;
 	private float border;
@@ -25,15 +30,15 @@ public class InformationScreen implements Screen{
 	
 	private SFButtonS back;
 	
-	private static ru.erked.spaceflight.tech.SFFont text;
+	private static SFFont text;
 	private String[] str;
-	private Sprite blackAlpha = ru.erked.spaceflight.random.RES.atlas.createSprite("black");
+	private Sprite blackAlpha = RES.atlas.createSprite("black");
 	private float alp = 1.0F;
 	private boolean isTrans;
 	
 	private ru.erked.spaceflight.Data data;
 	
-	public InformationScreen(final ru.erked.spaceflight.StartSFlight game, int iter, Screen screen){
+	public InformationScreen(final StartSFlight game, int iter, Screen screen){
 		this.game = game;
 		this.iter = iter;
 		this.screen = screen;
@@ -43,11 +48,11 @@ public class InformationScreen implements Screen{
 	@Override
 	public void show() {
 		
-		controller = new ru.erked.spaceflight.controllers.SFIn();
+		controller = new SFIn();
 	
 		switch(iter){
 		case 1:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information1");
+			picture = RES.atlas.createSprite("information1");
 			picture.setBounds(0.8F*width, 0.15F*height, 0.125F*width, 0.44479F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -78,7 +83,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 2:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information2");
+			picture = RES.atlas.createSprite("information2");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.29125F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -100,7 +105,7 @@ public class InformationScreen implements Screen{
 			border = 0.75F;
 			break;
 		}case 3:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information3");
+			picture = RES.atlas.createSprite("information3");
 			picture.setBounds(0.2F*width, 0.0F*height, 0.6F*width, 0.38074F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -119,7 +124,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 4:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information4");
+			picture = RES.atlas.createSprite("information4");
 			picture.setBounds(0.35F*width, 0.05F*height, 0.3F*width, 0.3F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -141,7 +146,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 5:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information5");
+			picture = RES.atlas.createSprite("information5");
 			picture.setBounds(0.35F*width, 0.05F*height, 0.3F*width, 0.3F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -159,7 +164,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 6:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information7");
+			picture = RES.atlas.createSprite("information7");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.333125F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -181,7 +186,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 7:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information6");
+			picture = RES.atlas.createSprite("information6");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.35333F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -205,7 +210,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 8:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information8");
+			picture = RES.atlas.createSprite("information8");
 			picture.setBounds(0.5F*width, 0.15F*height, 0.5F*width, 0.4F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -231,7 +236,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 9:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information9");
+			picture = RES.atlas.createSprite("information9");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.32535F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -255,7 +260,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 10:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information10");
+			picture = RES.atlas.createSprite("information10");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.41857F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -272,7 +277,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 11:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information11");
+			picture = RES.atlas.createSprite("information11");
 			picture.setBounds(0.5F*width, 0.25F*height, 0.5F*width, 0.35333F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -298,7 +303,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 12:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information12");
+			picture = RES.atlas.createSprite("information12");
 			picture.setBounds(0.15F*width, 0.0F*height, 0.7F*width, 0.24708F*(7.0F/5.0F)*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -318,7 +323,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 13:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information13");
+			picture = RES.atlas.createSprite("information13");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.35333F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -338,7 +343,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 14:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information14");
+			picture = RES.atlas.createSprite("information14");
 			picture.setBounds(0.15F*width, 0.0F*height, 0.7F*width, 0.4375F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -353,7 +358,7 @@ public class InformationScreen implements Screen{
 			}
 			break;
 		}case 15:{
-			picture = ru.erked.spaceflight.random.RES.atlas.createSprite("information15");
+			picture = RES.atlas.createSprite("information15");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.3625F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
@@ -378,9 +383,9 @@ public class InformationScreen implements Screen{
 		}
 		}
 		
-		ru.erked.spaceflight.menu.MainMenu.music.play();
+		MainMenu.music.play();
 		
-		texture = ru.erked.spaceflight.random.RES.atlas.createSprite("info");
+		texture = RES.atlas.createSprite("info");
 		texture.setBounds(0.0F, 0.0F, width, height);
 		texture.setColor(Color.GRAY);
 		
@@ -390,7 +395,7 @@ public class InformationScreen implements Screen{
 			back = new SFButtonS("backRI", "backRA", 0.2F*width, width - 0.215F*width, 0.01F*height, 2.98913F, 1.0F, -1);
 		}
 
-		text = new ru.erked.spaceflight.tech.SFFont(30, Color.WHITE);
+		text = new SFFont(30, Color.WHITE);
 		
 		isTrans = false;
 		blackAlpha.setBounds(0.0F, 0.0F, width, height);
@@ -537,7 +542,7 @@ public class InformationScreen implements Screen{
 	}
 	@Override
 	public void resume() {
-		ru.erked.spaceflight.menu.MainMenu.music.play();
+		MainMenu.music.play();
 		data.loadSF();
 	}
 	@Override
