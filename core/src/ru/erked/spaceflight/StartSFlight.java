@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ru.erked.spaceflight.random.INF;
 import ru.erked.spaceflight.splash.SplashScreen;
+import ru.erked.spaceflight.tech.SFTextSystem;
 
 public class StartSFlight extends Game {
 
@@ -15,6 +16,7 @@ public class StartSFlight extends Game {
 	public Data data;
 	public final AdMob adMob;
 	public final GPGS gpgs;
+    public SFTextSystem ts;
 
 	public StartSFlight(AndroidOnlyInterface aoi, Data data, AdMob adMob, GPGS gpgs, String lang){
 		this.aoi = aoi;
@@ -26,6 +28,7 @@ public class StartSFlight extends Game {
 		}else{
 			INF.lngRussian = false;
 		}
+        ts = new SFTextSystem(INF.lngRussian);
 	}
 
 	@Override

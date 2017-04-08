@@ -56,15 +56,7 @@ public class InformationScreen implements Screen{
 			picture.setBounds(0.8F*width, 0.15F*height, 0.125F*width, 0.44479F*width);
 			if(!INF.lngRussian){
 				str = new String[]{
-						"Launch ","vehicle ","- ","a missile ","which ","launchs ",
-						"into the ","space ","satellites, ","telescopes ","and ",
-						"payload ","for the ","astronauts. ","There are ","light, ",
-						"middle, ","heavy ","and ","super-heavy ","launch ","vehicles. ",
-						"Usually, ","these ","rockets ","have ","a few ","stages. ",
-						"Every ","stage ","has ","some ","fuel ","for ","the ",
-						"rocket. ","When ","fuel ","is over ","stage ","detaches ",
-						"from ","the rocket. ","The most ","of launch ","vehicles ","uses ",
-						"kerosene ","and ","hydrogen ","as ","a fuel."
+						game.ts.get("text.information.1")
 				};
 				border = 0.6F;
 			}else{
