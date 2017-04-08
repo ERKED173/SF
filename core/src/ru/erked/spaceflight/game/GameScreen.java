@@ -704,13 +704,13 @@ public class GameScreen implements Screen{
 		}
 		if(controller.isClickedCam(btnPlus.getX(camera, curViewWidth), btnPlus.getY(camera, curViewHeight), btnPlus.getWidth(), btnPlus.getHeight(), false, camera, curViewWidth/width)){			
 //			INF.facts++;
-//			INF.planetLevel++;
-//			INF.money += 1000;
-//			INF.fuel += 1000;
-//			INF.metal += 1000;
-//			INF.moneyFull += 100;
-//			INF.fuelFull += 100;
-//			INF.metalFull += 100;
+			INF.planetLevel++;
+			INF.money += 1000;
+			INF.fuel += 1000;
+			INF.metal += 1000;
+			INF.moneyFull += 100;
+			INF.fuelFull += 100;
+			INF.metalFull += 100;
 		}
 		if(controller.isClickedCam(coinFactorySprite[schCoin].getX(), coinFactorySprite[schCoin].getY(), coinFactorySprite[schCoin].getWidth(), coinFactorySprite[schCoin].getHeight(), true, camera, curViewWidth/width)){
 			game.setScreen(new CosmocoinScreen(game));

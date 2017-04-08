@@ -31,7 +31,7 @@ public class InformationScreen implements Screen{
 	private SFButtonS back;
 	
 	private static SFFont text;
-	private String[] str;
+	private String str;
 	private Sprite blackAlpha = RES.atlas.createSprite("black");
 	private float alp = 1.0F;
 	private boolean isTrans;
@@ -55,26 +55,14 @@ public class InformationScreen implements Screen{
 			picture = RES.atlas.createSprite("information1");
 			picture.setBounds(0.8F*width, 0.15F*height, 0.125F*width, 0.44479F*width);
 			if(!INF.lngRussian){
-				str = new String[]{
-						game.ts.get("text.information.1")
-				};
+				str = game.ts.get("text.information.1");
 				border = 0.6F;
 			}else{
-				str = new String[]{
-						"Ракета-носитель ","- ","это ","ракета, ","которая ","выводит ",
-						"в космос ","спутники, ","телескопы ","и ","полезный ","груз ",
-						"для ","космонавтов. ","Бывают ","легкие, ","средние, ","тяжелые ",
-						"и ","сверхтяжелые ","ракеты-носители. ","Обычно ","у ","таких ",
-						"ракет ","есть ","несколько ","ступеней. ","Каждая ","ступень ",
-						"несет ","в себе ","топливо ","для ","ракеты. ","Когда ","топливо ",
-						"заканчивается, ","ступень ","отделяется ","от ракеты.",
-						"Большинство ","ракет-носителей ","летают ","на жидком ","топливе, ",
-						"например, ","на керосине ","или ","водороде."
-				};
+				str = game.ts.get("text.information.1");
 				border = 0.6F;
 			}
 			break;
-		}case 2:{
+		}/**case 2:{
 			picture = RES.atlas.createSprite("information2");
 			picture.setBounds(0.25F*width, 0.0F*height, 0.5F*width, 0.29125F*width);
 			if(!INF.lngRussian){
@@ -373,6 +361,7 @@ public class InformationScreen implements Screen{
 		}default:{
 
 		}
+		*/
 		}
 		
 		MainMenu.music.play();
@@ -504,17 +493,26 @@ public class InformationScreen implements Screen{
 			break;
 		}
 		}
-		float marginLeft = 0.0F;
-		float marginTop = 0.0F;
-		for(int i=0;i<str.length;i++){
-			if(i!=0)
-				if(marginLeft + text.getWidth(str[i-1]) < border*width){
-					marginLeft += text.getWidth(str[i-1]);
-				}else{
-					marginLeft = 0.0F;
-					marginTop += 1.5F*text.getHeight("A");
-				}
-			text.draw(game.batch, str[i], 0.02F*width + marginLeft, 0.875F*height - marginTop);
+        int j = 0;
+        float marginLeft = 0.0F;
+        float marginTop = 0.0F;
+        String sP = "";
+		for(int i=0;i<str.length();i++) {
+            String s = "";
+			if(str.substring(i, i+1).equals(" ")){
+                s = str.substring(j, i);
+                if(j != 0) {
+                    if (marginLeft + text.getWidth(sP + " ") < border * width) {
+                        marginLeft += text.getWidth(sP + " ");
+                    } else {
+                        marginLeft = 0.0F;
+                        marginTop += 1.5F * text.getHeight("A");
+                    }
+                }
+                j = i+1;
+                sP = s;
+			}
+            text.draw(game.batch, s, 0.02F*width + marginLeft, 0.875F*height - marginTop);
 		}
 	}
 	

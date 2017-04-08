@@ -28,7 +28,6 @@ public class StartSFlight extends Game {
 		}else{
 			INF.lngRussian = false;
 		}
-        ts = new SFTextSystem(INF.lngRussian);
 	}
 
 	@Override

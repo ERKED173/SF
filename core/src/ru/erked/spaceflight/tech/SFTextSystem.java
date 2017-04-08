@@ -5,16 +5,17 @@ import com.badlogic.gdx.files.FileHandle;
 
 public class SFTextSystem {
 
-    private static FileHandle textFile;
     private static String text;
 
     public SFTextSystem(boolean lang){
         if(lang){
-            textFile = Gdx.files.internal("lang/RU.txt");
+            FileHandle textFile = Gdx.files.internal("lang/RU.txt");
+            text = textFile.readString();
         }else{
-            textFile = Gdx.files.internal("lang/EN.txt");
+            FileHandle textFile = Gdx.files.internal("lang/EN.txt");
+            text = textFile.readString();
         }
-        text = textFile.readString();
+
 
     }
 
@@ -23,7 +24,7 @@ public class SFTextSystem {
         for(int i=0;i<text.length()-key.length();i++){
             if(text.substring(i, i + key.length()).equals(key)){
                 int j = i + key.length() + 1;
-                while(!text.substring(j, j+1).equals("$")){
+                while(!text.substring(j, j+1).equals("☺")){
                     j++;
                 }
                 result = text.substring(i + key.length() + 1, j);

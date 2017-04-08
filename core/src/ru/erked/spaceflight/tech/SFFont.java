@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 public class SFFont {
 
 	private final float width = Gdx.graphics.getWidth();
-	final String FONT_CHARS_RU = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>";
+	private final String FONT_CHARS_RU = SFTextSystem.get("symbols");
 	private BitmapFont font;
 	
 	public SFFont(int charAmount, Color textColor, float borderWidth, Color borderColor){

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import ru.erked.spaceflight.menu.MainMenu;
 import ru.erked.spaceflight.random.INF;
 import ru.erked.spaceflight.random.RES;
+import ru.erked.spaceflight.tech.SFTextSystem;
 
 public class SplashScreen implements Screen {
 
@@ -50,6 +51,8 @@ public class SplashScreen implements Screen {
 		if(Gdx.app.getType().equals(ApplicationType.Desktop)){
 			ru.erked.spaceflight.random.ResetTheGame.reset();
 		}
+
+		game.ts = new SFTextSystem(INF.lngRussian);
 		
 	}
 
