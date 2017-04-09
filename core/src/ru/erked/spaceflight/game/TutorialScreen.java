@@ -21,6 +21,7 @@ public class TutorialScreen implements Screen{
 	private int backIter = 0;
 	
 	private ru.erked.spaceflight.tech.SFButtonS back;
+	private ru.erked.spaceflight.tech.SFButtonS menu;
 	private Sprite image1;
 	private Sprite image2;
 	private Sprite image3;
@@ -28,11 +29,7 @@ public class TutorialScreen implements Screen{
 	private Sprite image5;
 	
 	private ru.erked.spaceflight.tech.SFFont text;
-	private String[] str1 = new String[]{
-            "������������! ","                                                                                          ",
-            "�� ","- ","�������� ","������������ ","�����. ","                                                          ",
-            "���� ","������ ","- ","���������� ","� ","������ ","������, ","����� ", "�� ", "������ ", "�������� ", "�������� ", "����������� ", "�����. "
-    };
+	private String[] str1 = new String[]{};
 	private String[] str2;
 	private String[] str3;
 	private String[] str4;
@@ -247,8 +244,10 @@ public class TutorialScreen implements Screen{
 	private void SFButtonsInit(){
 		if(!INF.lngRussian){
 			back = new ru.erked.spaceflight.tech.SFButtonS("continueI", "continueA", 0.365F*width, width - 0.38F*width, 0.015F*height, 5.97826F, 1.0F, -1);
+			menu = new ru.erked.spaceflight.tech.SFButtonS("backI", "backA", 0.225F*width, 0.01F*width, 0.015F*height, 2.98913F, 1.0F, -1);
 		}else{
 			back = new ru.erked.spaceflight.tech.SFButtonS("continueRI", "continueRA", 0.365F*width, width - 0.38F*width, 0.015F*height, 5.97826F, 1.0F, -1);
+			menu = new ru.erked.spaceflight.tech.SFButtonS("backRI", "backRA", 0.2F*width, 0.01F*width, 0.01F*height, 2.98913F, 1.0F, -1);
 		}
 	}
 	
@@ -278,7 +277,13 @@ public class TutorialScreen implements Screen{
 		}else{
 			back.setActiveMode(false);
 		}
+        if(controller.isOn(menu.getX(), menu.getY(), menu.getWidth(), menu.getHeight(), true)){
+            menu.setActiveMode(true);
+        }else{
+            menu.setActiveMode(false);
+        }
 		if(page == 5) back.getSprite().draw(game.batch);
+		menu.getSprite().draw(game.batch);
 	}
 	
 	private void buttonListener(){
@@ -297,6 +302,10 @@ public class TutorialScreen implements Screen{
 		}
 		if(controller.isClicked(prev.getX(), prev.getY(), prev.getWidth(), prev.getHeight(), page > 1, true)){
 			page--;
+		}
+		if(controller.isClicked(menu.getX(), menu.getY(), menu.getWidth(), menu.getHeight(), true, true)){
+			game.setScreen(new MainMenu(game));
+			this.dispose();
 		}
 	}
 	

@@ -22,7 +22,7 @@ public class DesktopLauncher implements AndroidOnlyInterface, Data{
 //		TexturePacker.process(s, "D:/SPACE/Backups/other/assets/textures", "D:/SPACE/SFProject/android/assets/textureAtlas", "textures");
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new StartSFlight(deskLauncher, deskLauncher, new AdMobImpl(), new GPGSImpl(), "RU"), config);
+		new LwjglApplication(new StartSFlight(deskLauncher, deskLauncher, new AdMobImpl(), new GPGSImpl()), config);
 		config.width = 960;
 		config.height = 600;
 
